@@ -8,7 +8,6 @@
     <script>
         $(document).ready(function(){
             $('#test').click(function(){
-                
                 if("WebSocket" in window){
                     console.log("您的浏览器支持websocket\n");
                     var ws = new WebSocket("ws://120.79.22.70:9501");//创建websocket对象

@@ -54,6 +54,11 @@ class Swoole extends Command
         //创建websocket服务器对象，监听0.0.0.0:9502端口
         $this->ws = new \swoole_websocket_server("0.0.0.0", 9502);
 
+        $this->ws->set(array(
+            'worker_num' => 2,
+            'task_worker_num' => 10
+        ));
+
         //监听WebSocket连接打开事件
         $this->ws->on('open', function ($ws, $request) {
             var_dump($request->fd . "连接成功");
